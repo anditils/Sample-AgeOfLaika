@@ -31,14 +31,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func convertHumanToRealDogYearsButtonPressed(sender: UIButton) {
-        var intValueOfTextField = humanYearsTextField.text.toInt()!
-        var dogYearsResult = 0.0
+        let doubleFromTextField = Double((humanYearsTextField.text as NSString).doubleValue)
+        var dogYearsResult:Double
         
-        if intValueOfTextField <= 2.0 {
-            dogYearsResult = Double(intValueOfTextField) * 10.5
+        if doubleFromTextField <= 2.0 {
+            dogYearsResult = doubleFromTextField * 10.5
         } else {
-            dogYearsResult = 21.0 // the first two years
-            dogYearsResult += Double(intValueOfTextField - 2) * 4
+            dogYearsResult = 2 * 10.5 // the first two years
+            dogYearsResult += (doubleFromTextField - 2) * 4
         }
         dogYearsLabel.hidden = false
         dogYearsLabel.text = "Doggy is really \(dogYearsResult) old (in Human Years)"
